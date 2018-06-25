@@ -12,11 +12,14 @@ class RoboFile extends \Robo\Tasks
     	$this->_exec("git " . $arg);
     }
 
-    public function push($commitMessage, $branch = "master")
+    public function push($commitMessage, $origin = "origin", $branch = "master")
     {
     	$this->say("Pushing code to repository...");
-    	$this->_exec("git add .");
-    	$this->_exec("git commit -m \"" . $commitMessage . "\"");
-    	$this->_exec("git push origin " . $branch);
+    	$this->taskGitStack()
+    		->stopOnFail()
+    		->add('.')
+    		->commit($commitMessage)
+    		->push($origin, $branch)
+    		->run();
     }
 }
