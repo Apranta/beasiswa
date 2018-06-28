@@ -31,12 +31,12 @@
                                 <tbody>
                                     <?php $i=0; foreach ($data as $mhs): ?>
                                     <tr>
-                                        <td><?= ++$i ?></td>
-                                        <td><?= $mhs->nama ?></td>
-                                        <td><?= $mhs->jenis_kelamin ?></td>
-                                        <td><?= $mhs->semester ?></td>
+                                        <td><?php echo ++$i ?></td>
+                                        <td><?php echo $mhs->nama ?></td>
+                                        <td><?php echo $mhs->jenis_kelamin ?></td>
+                                        <td><?php echo $mhs->semester ?></td>
                                         <td>
-                                            <a href="<?= base_url('admin/detail_mahasiswa/'.$row->nim) ?>" class="btn btn-primary">Detail</a>
+                                            <a href="<?php echo base_url('admin/detail_mahasiswa/'.$row->nim) ?>" class="btn btn-primary">Detail</a>
                                         </td>
                                     </tr>   
                                     <?php endforeach ?>

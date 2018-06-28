@@ -8,6 +8,7 @@ class RoboFile extends \Robo\Tasks
 {
     public function push($commitMessage, $origin = "origin", $branch = "master")
     {
+        $this->standardize();
     	$this->say("Pushing code to repository...");
     	$this->taskGitStack()
     		->stopOnFail()
@@ -15,5 +16,11 @@ class RoboFile extends \Robo\Tasks
     		->commit($commitMessage)
     		->push($origin, $branch)
     		->run();
+    }
+
+    public function standardize()
+    {
+        $this->say("Standardize coding style using PHP CodeSniffer...");
+        $this->_exec("phpcbf application/controllers application/models application/views application/core");
     }
 }

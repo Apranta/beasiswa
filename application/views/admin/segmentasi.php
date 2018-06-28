@@ -33,7 +33,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?= form_open('admin/hasil'); ?>
+                                    <?php echo form_open('admin/hasil'); ?>
                                     <tr>
                                         <td><input type="text" name="nama" class="form-control"></td>
                                         <td><input type="text" name="segmen" class="form-control"></td>
@@ -43,7 +43,7 @@
                                         <td><select name="periode" class="form-control">
                                             <?php foreach ($this->Periode_m->get() as $p): ?>
                                                 
-                                            <option value="<?= $p->id ?>"><?= $p->nama ?></option>
+                                            <option value="<?php echo $p->id ?>"><?php echo $p->nama ?></option>
                                             <?php endforeach ?>
                                         </select></td>
                                         
@@ -51,7 +51,7 @@
                                     <tr>
                                         <td colspan="6" style="vertical-align: left;"><input type="submit" value="Simpan" name="simpan" class="btn btn-success"></td>
                                     </tr>
-                                    <?= form_close(); ?>  
+                                    <?php echo form_close(); ?>  
                                 </tbody>
                             </table>
                         </div>
@@ -61,20 +61,20 @@
                             <h3 class="text-center">Tabel Data</h3>
                         </div>
                         <div class="card-body">
-                            <!-- <?=form_open('admin/hasil'); ?> -->
+                            <!-- <?php echo form_open('admin/hasil'); ?> -->
                             <div class="form-group">
                                 <label for="">Pilih Periode</label>
                                 <select name="periode" class="form-control" id="periode">
                                     <option value="0">== Semua ==</option>
                                     <?php foreach ($this->Periode_m->get() as $p): ?>         
-                                    <option value="<?= $p->id ?>"><?= $p->nama ?></option>
+                                    <option value="<?php echo $p->id ?>"><?php echo $p->nama ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-info" onclick="_get()">Pilih</button>
                             </div>
-                            <!-- <?= form_close() ?> -->
+                            <!-- <?php echo form_close() ?> -->
                             <hr>
                             <style type="text/css">
                                 tr th, tr td {text-align: center;}
@@ -99,15 +99,16 @@
                                         <?php foreach ($key as $value => $k): ?>
                                             <?php $comp = $this->Transaksi_m->get_row(['company' => $value]); ?>
                                              <tr>
-                                                <td><?= $comp->company ?></td>
-                                                <td><?= $comp->date_most_recent ?></td>
-                                                <td><?= $comp->transaction_count ?></td>
-                                                <td><?= $comp->amount ?></td>
-                                                <td><?= $i ?></td>
-                                                <td><?= ($this->Periode_m->get_row(['id' => $comp->periode ])) ? $this->Periode_m->get_row(['id' => $comp->periode ])->nama : '-' ?></td>
+                                                <td><?php echo $comp->company ?></td>
+                                                <td><?php echo $comp->date_most_recent ?></td>
+                                                <td><?php echo $comp->transaction_count ?></td>
+                                                <td><?php echo $comp->amount ?></td>
+                                                <td><?php echo $i ?></td>
+                                                <td><?php echo ($this->Periode_m->get_row(['id' => $comp->periode ])) ? $this->Periode_m->get_row(['id' => $comp->periode ])->nama : '-' ?></td>
                                             </tr>   
                                         <?php endforeach ?>
-                                    <?php $i++; endforeach ?>
+                                        <?php $i++; 
+                                    endforeach ?>
                                 </tbody>
                             </table>
                         </div>
@@ -122,7 +123,7 @@
     function _get() {
         var id = $("#periode").val();
         // alert(id);
-        window.location.href = '<?= base_url('admin/hasil') ?>' + '/' + id; 
+        window.location.href = '<?php echo base_url('admin/hasil') ?>' + '/' + id; 
         // body...
     }
 </script>

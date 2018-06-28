@@ -6,28 +6,28 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <?php if ($this->session->userdata('role') == 'admin'): ?>
+        <?php if ($this->session->userdata('role') == 'admin') : ?>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="<?= base_url('admin') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin') ?>">
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Dashboard</span>
             </a>
           </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="<?= base_url('admin') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin') ?>">
               <i class="fa fa-fw fa-user"></i>
               <span class="nav-link-text">Mahasiswa</span>
             </a>
           </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="<?= base_url('admin') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin') ?>">
               <i class="fa fa-fw fa-user"></i>
               <span class="nav-link-text">Data Pengajuan Beasiswa</span>
             </a>
           </li>
         <?php else: ?>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="<?= base_url('mahasiswa') ?>">
+            <a class="nav-link" href="<?php echo base_url('mahasiswa') ?>">
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Dashboard</span>
             </a>
