@@ -25,6 +25,16 @@ class Login extends MY_Controller
 
 	public function index()
 	{
+		$this->load->library('Smart/smart');
+		$this->smart->fit([
+			'ipk' => 3.50,
+			'prestasi_non_akademik' => 'Internasional',
+			'penghasilan_orang_tua' => 1300000,
+			'tanggungan_orang_tua' => 2
+		]);
+		$this->dump($this->smart->result());
+		exit;
+
 		$this->data['title']	= 'Login | ' . $this->title;
 		$this->data['content']	= 'login';
 		$this->load->view('login', $this->data);
