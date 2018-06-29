@@ -2,33 +2,20 @@
 
 class MY_Controller extends CI_Controller
 {
-    public $title = 'Beasiswa';
+    public $title = 'Sistem Informasi Beasiswa Politeknik Negeri Sriwijaya';
     public function __construct()
     {
         parent::__construct();
-        // $this->load->library('lib_log');
         date_default_timezone_set("Asia/Jakarta");
-        header('Access-Control-Allow-Origin: *');
-        if (isset($_SERVER['HTTP_ORIGIN'])) {
-            header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-            header('Access-Control-Allow-Credentials: true');
-            header('Access-Control-Max-Age: 86400'); // cache for 1 day
-        }
-        // Access-Control headers are received during OPTIONS requests
-        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-            if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) { 
-                header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-            }
-            if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) { 
-                header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-            }
-            exit(0);
-        }
     }
 
-    public function template($data)
+    public function template($data, $module = '', $excludedParts = [])
     {
-        return $this->load->view('includes/layout', $data);
+        if (!empty($module)) { $module .= '/';
+        }
+        $data['module'] = $module;
+        $data['excluded_parts'] = $excludedParts;
+        return $this->load->view($module . 'includes/layout', $data);
     }
 
     public function POST($name)
@@ -73,5 +60,95 @@ class MY_Controller extends CI_Controller
         echo '<pre>';
         var_dump($var);
         echo '</pre>';
+    }
+
+    protected function goBack($index) 
+    {
+        echo '<script type="text/javascript">window.history.go(' . $index . ');</script>'; 
+    }
+
+    protected function checkPermissions($condition, $message = [ 'Required parameter is missing', 'danger' ], $options = [], $redirect = -1)
+    {
+        if ($condition) {
+            if (count($options) <= 0) {
+                $this->flashMessage($message[0], $message[1]);
+                $this->goBack($redirect);
+                exit;
+            }
+            
+            if (in_array(CLEAR_SESSIONS, $options)) {
+                $this->session->sess_destroy();
+            }
+
+            $this->flashMessage($message[0], $message[1]);
+
+            if (in_array(REDIRECT_LOGIN, $options)) {
+                redirect($redirect); // set $redirect route here with your login route
+            }
+
+            if (in_array(REDIRECT_RULES, $options)) {
+                $this->redirectRules($redirect);
+            }
+
+            $this->goBack($redirect);
+            exit;
+        }
+    }
+
+    /**
+     * set your application route rules here
+     */
+    protected function redirectRules($value)
+    {
+        switch ($value)
+        {
+        case 'admin':
+            redirect('admin');
+            break;
+        case 'mahasiswa':
+            redirect('mahasiswa');
+            break;
+        default:
+            $this->session->sess_destroy();
+            redirect('login');
+            break;
+        }
+    }
+
+    protected function flashMessage($msg, $type = 'success',$name = 'msg')
+    {
+        return $this->session->set_flashdata($name, '<div class="alert alert-'.$type.' alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.$msg.'</div>');
+    }
+
+    protected function __generate_random_id() 
+    {
+        return mt_rand();
+    }
+
+    protected function __generate_random_string($length = 8, $options = [ 'uppercase', 'lowercase', 'number', 'symbol' ])
+    {
+        $chars = '';
+        if (in_array('uppercase', $options)) {
+            $chars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+        }
+        if (in_array('lowercase', $options)) {
+            $chars .= 'abcdefghijklmnopqrstuvwxys';
+        }
+        if (in_array('number', $options)) {
+            $chars .= '0123456789';
+        }
+        if (in_array('symbol', $options)) {
+            $chars .= '!@#$%^&*';
+        }
+
+        $chars = str_split($chars);
+        $charsLength = count($chars);
+        $result = '';
+        for ($i = 0; $i < $length; $i++)
+        {
+            $result .= $chars[mt_rand() % $charsLength];
+        }
+
+        return $result;
     }
 }

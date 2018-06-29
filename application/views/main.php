@@ -44,39 +44,17 @@
     <div class="card mx-auto" style="width: 60%; margin-top: 20px; background-color: #F0E68C;">
       <div class="card-body">
         <?php echo $this->session->flashdata('msg') ?>
-        <?php echo form_open('login/login-process') ?>
           <div class="alert alert-dark">
-            <small>Masukkan NIM sebagai username dan PIN yang anda dapatkan sebagai password</small>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-4">
-                <label for="nim"><b>Nomor Induk Mahasiswa</b></label>
-              </div>
-              <div class="col-md-8">
-                <input class="form-control" id="nim" type="text" name="nim" aria-describedby="nim" placeholder="Masukkan Nomor Induk Mahasiswa" required>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-4">
-                <label for="pin"><b>PIN</b></label>
-              </div>
-              <div class="col-md-8">
-                <input class="form-control" id="pin" name="pin" type="text" placeholder="Masukkan PIN">
-              </div>
-            </div>
+            <p>Jika anda sudah mendapatkan PIN dari sistem kami, silahkan klik tombol <i>login</i>. Jika tidak, silahkan klik tombol <i>Request PIN</i></p>
           </div>
           <div class="row">
-            <div class="offset-md-4 col-md-4">
-              <button type="submit" name="login-submit" value="Login" class="btn btn-dark btn-block">Login</button>
+            <div class="col-md-6">
+              <a href="<?php echo base_url('login') ?>" class="btn btn-dark btn-block">Login</a>
             </div>
-            <div class="col-md-4">
-              <a href="<?php echo base_url('main') ?>" style="color: #FFF;" class="btn btn-dark btn-block">Kembali</a>
+            <div class="col-md-6">
+              <a href="<?php echo base_url('main/request') ?>" style="color: #FFF;" class="btn btn-dark btn-block pull-right">Request PIN</a>
             </div>
           </div>
-        <?php echo form_close() ?>
       </div>
     </div>
   </div>

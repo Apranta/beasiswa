@@ -5,39 +5,13 @@ class Login extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->data['username']     = $this->session->userdata('username');
         $this->data['role']    = $this->session->userdata('role');
-        if (isset($this->data['role'])) {
-            switch ($this->data['role']) 
-            {
-            case 'admin':
-                redirect('admin');
-                break;
-            case 'mahasiswa':
-                redirect('mahasiswa');
-                break;
-            default:
-                $this->session->sess_destroy();
-                redirect('login');    
-            }
-        }
+        $this->checkPermissions(isset($this->data['role']), [ 'Anda telah login', 'info' ], [ REDIRECT_RULES ], $this->data['role']);
     }
 
     public function index()
     {
-        // $this->load->library('Smart/smart');
-        // $this->smart->fit(
-        //     [
-        //     'ipk' => 3.50,
-        //     'prestasi_non_akademik' => 'Internasional',
-        //     'penghasilan_orang_tua' => 1300000,
-        //     'tanggungan_orang_tua' => 2
-        //     ]
-        // );
-        // $this->dump($this->smart->result());
-        // exit;
-
-        $this->data['title']    = 'Login | ' . $this->title;
+        $this->data['title']    = 'Login';
         $this->data['content']    = 'login';
         $this->load->view('login', $this->data);
     }

@@ -19,9 +19,18 @@ class SmartTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testSomeFeature()
+    public function testResult()
     {
-        $this->assertTrue($this->smart->test());
-        $this->assertFalse(!$this->smart->test());
+        $this->smart->fit(
+            [
+            'ipk' => 3.50,
+            'prestasi_non_akademik' => 'Internasional',
+            'penghasilan_orang_tua' => 1300000,
+            'tanggungan_orang_tua' => 2
+            ]
+        );
+        $result = $this->smart->result();
+        $this->assertEquals($result, 88);
+        $this->assertEquals($this->smart->predicate($result), "Layak");
     }
 }

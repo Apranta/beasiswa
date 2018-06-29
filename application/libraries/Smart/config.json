@@ -91,5 +91,17 @@
 				}
 			]
 		}
+	],
+	"predicates": [
+		{
+			"label": "Layak",
+			"max": 100,
+			"min": 80
+		},
+		{
+			"label": "Tidak Layak",
+			"max": 79,
+			"min": 0
+		}
 	]
 }

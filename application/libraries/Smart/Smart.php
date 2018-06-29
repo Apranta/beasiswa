@@ -1,16 +1,24 @@
 <?php 
+/**
+ * A class implementing Simple Multi Attribute Rating Technique (SMART) method.
+ *
+ * @author Azhary Arliansyah <arliansyah_azhary@yahoo.com>
+ */
+
 
 class Smart
 {
-	private $CONFIG;
+	private $config;
 	private $criteria;
+	private $predicates;
 	private $weights;
 	private $data;
 
 	public function __construct()
 	{
-		$this->CONFIG = json_decode(file_get_contents(APPPATH . '/libraries/Smart/config.json'), true);
-		$this->criteria = $this->CONFIG['criteria'];
+		$this->config = json_decode(file_get_contents(realpath(__DIR__ . '/config.json')), true);
+		$this->criteria = $this->config['criteria'];
+		$this->predicates = $this->config['predicates'];
 		$this->weights = array_column($this->criteria, 'weight');
 	}
 
@@ -61,6 +69,19 @@ class Smart
 		}
 
 		return $result;
+	}
+
+	public function predicate()
+	{
+		$result = $this->result();
+		foreach ($this->predicates as $predicate)
+		{
+			if ($result >= $predicate['min'] && $result <= $predicate['max'])
+			{
+				return $predicate['label'];
+			}
+		}
+		return false;
 	}
 
 	private function normalize($criterion)
