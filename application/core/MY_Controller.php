@@ -120,12 +120,12 @@ class MY_Controller extends CI_Controller
         return $this->session->set_flashdata($name, '<div class="alert alert-'.$type.' alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.$msg.'</div>');
     }
 
-    protected function __generate_random_id() 
+    protected function __generateRandomID() 
     {
         return mt_rand();
     }
 
-    protected function __generate_random_string($length = 8, $options = [ 'uppercase', 'lowercase', 'number', 'symbol' ])
+    protected function __generateRandomString($length = 8, $options = [ 'uppercase', 'lowercase', 'number', 'symbol' ])
     {
         $chars = '';
         if (in_array('uppercase', $options)) {

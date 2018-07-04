@@ -44,7 +44,7 @@
     <div class="card mx-auto" style="width: 60%; margin-top: 20px; background-color: #F0E68C;">
       <div class="card-body">
         <?php echo $this->session->flashdata('msg') ?>
-        <?php echo form_open('login/login-process') ?>
+        <?php echo form_open('login') ?>
           <div class="alert alert-dark">
             <small>Masukkan NIM sebagai username dan PIN yang anda dapatkan sebagai password</small>
           </div>
@@ -70,10 +70,10 @@
           </div>
           <div class="row">
             <div class="offset-md-4 col-md-4">
-              <button type="submit" name="login-submit" value="Login" class="btn btn-dark btn-block">Login</button>
+              <button type="submit" name="login" value="Login" class="btn btn-dark btn-block">Login</button>
             </div>
             <div class="col-md-4">
-              <a href="<?php echo base_url('main') ?>" style="color: #FFF;" class="btn btn-dark btn-block">Kembali</a>
+              <a href="<?php echo base_url('main') ?>" style="color: #FFF;" class="btn btn-dark btn-block" id="back-button">Kembali</a>
             </div>
           </div>
         <?php echo form_close() ?>

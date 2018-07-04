@@ -11,7 +11,6 @@ class CI_PHPMailer
 	public function __construct()
 	{
 		$this->PHPMailer = new PHPMailer();
-		$this->PHPMailer->SMTPDebug = 3;
 		$this->PHPMailer->isSMTP();
 	}
 

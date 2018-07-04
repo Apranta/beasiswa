@@ -5,76 +5,25 @@ class Mahasiswa extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->data['username']      = $this->session->userdata('username');
-        $this->data['role']  = $this->session->userdata('role');
-        if (!isset($this->data['username'], $this->data['role'])) {
-            $this->session->sess_destroy();
-            redirect('logout');
-            exit;
-        }
-        if ($this->data['role'] != 'mahasiswa') {
-            $this->session->sess_destroy();
-            redirect('logout');
-            exit;
-        }
-        $this->load->model(
-            [
-            'User_m',
-            'mahasiwa_m',
-            'data_keluarga_m',
-            'data_pengajuan_m'
-            ]
-        );
+        $this->data['nim']  = $this->session->userdata('nim');
+        $this->data['role'] = $this->session->userdata('role');
+        $this->checkPermissions(!isset($this->data['nim'], $this->data['role']) or $this->data['role'] != 'mahasiswa', [ 'Silahkan login terlebih dahulu', 'info' ], [ REDIRECT_RULES ]);
     }
 
   
 
-    public function index($value='')
+    public function index()
     {
-        // $this->data['data'] = ;
-        $this->data['title']  = 'Dashboard | ' . $this->title;
-        $this->data['content']  = 'admin/';
-        $this->template($this->data);
+        $this->data['title']    = 'Dashboard';
+        $this->data['content']  = 'mahasiswa/dashboard';
+        $this->template($this->data, 'mahasiswa');
     }
 
-    public function data_diri($value='')
+    public function data_diri()
     {
-        $this->data['title']  = 'Dashboard | ' . $this->title;
-        $this->data['content']  = 'admin/data_mahasiswa';
-        $this->template($this->data);
-    }
-
-    public function data_keluarga($value='')
-    {
-        // $this->data['data'] = ;
-        $this->data['title']  = 'Dashboard | ' . $this->title;
-        $this->data['content']  = 'admin/';
-        $this->template($this->data);
-    }
-
-    public function pengajuan($value='')
-    {
-        // $this->data['data'] = ;
-        $this->data['title']  = 'Dashboard | ' . $this->title;
-        $this->data['content']  = 'admin/';
-        $this->template($this->data);
-    }
-
-    public function ganti_password($value='')
-    {
-        // $this->data['data'] = ;
-        $this->data['title']  = 'Dashboard | ' . $this->title;
-        $this->data['content']  = 'admin/';
-        $this->template($this->data);
-    }
-
-
-    public function cetak_berkas($value='')
-    {
-        // $this->data['data'] = ;
-        $this->data['title']  = 'Dashboard | ' . $this->title;
-        $this->data['content']  = 'admin/';
-        $this->template($this->data);
+        $this->data['title']    = 'Data Diri';
+        $this->data['content']  = 'mahasiswa/data_diri';
+        $this->template($this->data, 'mahasiswa');
     }
 
 }
