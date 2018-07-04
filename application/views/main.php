@@ -45,7 +45,7 @@
       <div class="card-body">
         <?php echo $this->session->flashdata('msg') ?>
           <div class="alert alert-dark">
-            <p>Jika anda sudah mendapatkan PIN dari sistem kami, silahkan klik tombol <i>login</i>. Jika tidak, silahkan klik tombol <i>Request PIN</i></p>
+            <p>Jika anda sudah mendapatkan PIN dari sistem kami, silahkan klik tombol <i>Login</i>. Jika tidak, silahkan klik tombol <i>Request PIN</i></p>
           </div>
           <div class="row">
             <div class="col-md-6">

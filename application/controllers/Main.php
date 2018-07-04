@@ -1,10 +1,5 @@
 <?php 
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php';
-
 class Main extends MY_Controller
 {
     public function __construct()
@@ -16,6 +11,7 @@ class Main extends MY_Controller
 
     public function index()
     {
+        $this->testMail();
         $this->data['title']    = 'Halaman Utama';
         $this->data['content']  = 'main';
         $this->load->view('main', $this->data);
@@ -38,31 +34,18 @@ class Main extends MY_Controller
 
     private function testMail()
     {
-        $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-        try {
-            //Server settings
-            $mail->SMTPDebug = 3;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'testdevsmail@gmail.com';                 // SMTP username
-            $mail->Password = '4kuGanteng';                           // SMTP password
-            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 465;                                    // TCP port to connect to
-
-            //Recipients
-            $mail->setFrom('beasiswa@polsri.ac.id', 'Humas Polsri');
-            $mail->addAddress('arliansyah_azhary@yahoo.com', 'Joe User');     // Add a recipient
-
-            //Content
-            $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-
-            $mail->send();
-            echo 'Message has been sent';
-        } catch (Exception $e) {
-            echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        // TODO: create CI_PHPMailer library
+        $this->load->library('CI_PHPMailer/ci_phpmailer');
+        try 
+        {
+            $this->ci_phpmailer->setServer('smtp.gmail.com');
+            $this->ci_phpmailer->setAuth('testdevsmail@gmail.com', '4kuGanteng');
+            $this->ci_phpmailer->setAlias('beasiswa@polsri.ac.id', 'Humas Polsri');
+            $this->ci_phpmailer->sendMessage('arliansyah_azhary@yahoo.com', 'Subject here', 'Bodyyyyyyy here');    
+        } 
+        catch (Exception $e)
+        {
+            $this->ci_phpmailer->displayError();
         }
     }
 }

@@ -11,6 +11,8 @@ class RoboFile extends \Robo\Tasks
         $this->standardize();
         if ($this->test()->wasSuccessful())
         {
+            // TODO: check if nothing to be commited before push 
+
             $this->say("Pushing code to repository...");
             $this->taskGitStack()
                 ->stopOnFail()
