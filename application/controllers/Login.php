@@ -7,10 +7,6 @@ class Login extends MY_Controller
         parent::__construct();
         $this->data['role']    = $this->session->userdata('role');
         $this->checkPermissions(isset($this->data['role']), [ 'Anda telah login', 'info' ], [ REDIRECT_RULES ], $this->data['role']);
-        // $this->load->library('Error_reporter/error_reporter');
-        // display_errors(false); // hide error reporting
-        // $this->load->model('mahasiswa_m');
-        // throw Exception('hahaha', E_USER_NOTICE);
     }
 
     public function index()

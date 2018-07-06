@@ -11,20 +11,32 @@ class RoboFile extends \Robo\Tasks
         $this->standardize();
         if ($this->test()->wasSuccessful())
         {
-            // TODO: check if nothing to be commited before push 
-
             $this->say("Pushing code to repository...");
             $this->taskGitStack()
-                ->stopOnFail()
                 ->add('.')
-                ->commit($commitMessage)
-                ->push($origin, $branch)
-                ->run();    
+                ->run();
+            if ($this->commit($commitMessage)->wasSuccessful())
+            {
+                $this->taskGitStack()
+                    ->push($origin, $branch)
+                    ->run();
+            }
+            else
+            {
+                $this->say('VCS task stack failed');
+            }
         }
         else
         {
             $this->say("Testing failed.");
         }
+    }
+
+    public function commit($commitMessage)
+    {
+        return $this->taskGitStack()
+            ->commit($commitMessage)
+            ->run();
     }
 
     public function standardize()

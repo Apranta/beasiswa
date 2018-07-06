@@ -9,15 +9,16 @@
 
 class Error_reporter
 {
+	// the labeled x constants are the error constants that cannot be handled by user defined function
 	private $levels = [
-        E_ERROR             => 'Error',
+        E_ERROR             => 'Error', // x
         E_WARNING           => 'Warning',
-        E_PARSE             => 'Parsing Error',
-        E_NOTICE            => 'Notice',
-        E_CORE_ERROR        => 'Core Error',
-        E_CORE_WARNING      => 'Core Warning',
-        E_COMPILE_ERROR     => 'Compile Error',
-        E_COMPILE_WARNING   => 'Compile Warning',
+        E_PARSE             => 'Parsing Error', // x 
+        E_NOTICE            => 'Notice', 
+        E_CORE_ERROR        => 'Core Error', // x
+        E_CORE_WARNING      => 'Core Warning', // x
+        E_COMPILE_ERROR     => 'Compile Error', // x
+        E_COMPILE_WARNING   => 'Compile Warning', // x
         E_USER_ERROR        => 'User Error',
         E_USER_WARNING      => 'User Warning',
         E_USER_NOTICE       => 'User Notice',
@@ -45,6 +46,10 @@ class Error_reporter
             'ip_address' 	=> $_SERVER['REMOTE_ADDR'],
             'time' 			=> date('Y-m-d H:i:s')
         ];
+
+        $list = json_decode(file_get_contents(__DIR__ . '/error.log'));
+		$list []= $data;
+		file_put_contents(__DIR__ . '/error.log', json_encode($list));
 	}
 
 	public function exception_handler($exception)
@@ -63,6 +68,11 @@ class Error_reporter
 		$list = json_decode(file_get_contents(__DIR__ . '/exception.log'));
 		$list []= $data;
 		file_put_contents(__DIR__ . '/exception.log', json_encode($list));
+	}
+
+	public function get_error_list()
+	{
+		return json_decode(file_get_contents(__DIR__ . '/error.log'));
 	}
 
 	public function get_exception_list()
@@ -88,5 +98,10 @@ class Error_reporter
 	public function disable_exception_handler()
 	{
 		return restore_exception_handler();
+	}
+
+	public function toggle_error($status)
+	{
+		ini_set('display_errors', $status);
 	}
 }
