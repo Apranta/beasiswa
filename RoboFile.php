@@ -23,7 +23,9 @@ class RoboFile extends \Robo\Tasks
             }
             else
             {
-                $this->say('VCS task stack failed');
+                $this->taskGitStack()
+                    ->push($origin, $branch)
+                    ->run();
             }
         }
         else
