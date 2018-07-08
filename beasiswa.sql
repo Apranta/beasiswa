@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 Jun 2018 pada 13.43
--- Versi Server: 10.1.28-MariaDB
+-- Generation Time: Jul 08, 2018 at 07:55 AM
+-- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_keluarga`
+-- Table structure for table `data_keluarga`
 --
 
 CREATE TABLE `data_keluarga` (
@@ -52,7 +52,7 @@ CREATE TABLE `data_keluarga` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_pengajuan`
+-- Table structure for table `data_pengajuan`
 --
 
 CREATE TABLE `data_pengajuan` (
@@ -66,7 +66,7 @@ CREATE TABLE `data_pengajuan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jurusan`
+-- Table structure for table `jurusan`
 --
 
 CREATE TABLE `jurusan` (
@@ -74,32 +74,48 @@ CREATE TABLE `jurusan` (
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `jurusan`
+--
+
+INSERT INTO `jurusan` (`id`, `nama`) VALUES
+(1, 'Sipil'),
+(2, 'Teknik Mesin');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mahasiswa`
+-- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
   `nim` varchar(100) NOT NULL,
-  `nama` text NOT NULL,
-  `jenis_kelamin` enum('L','P') NOT NULL,
-  `agama` varchar(100) NOT NULL,
-  `tempat_lahir` text NOT NULL,
-  `tanggal_lahir` date NOT NULL,
-  `alamat` text NOT NULL,
-  `kode_pos` varchar(8) NOT NULL,
-  `telepon` varchar(12) NOT NULL,
-  `jurusan` varchar(100) NOT NULL,
-  `semester` int(11) NOT NULL,
-  `nomor_rekening` varchar(50) NOT NULL,
-  `prestasi` text NOT NULL
+  `pin` char(60) NOT NULL,
+  `nama` text,
+  `jenis_kelamin` enum('L','P') DEFAULT NULL,
+  `agama` varchar(100) DEFAULT NULL,
+  `tempat_lahir` text,
+  `tanggal_lahir` date DEFAULT NULL,
+  `alamat` text,
+  `kode_pos` varchar(8) DEFAULT NULL,
+  `telepon` varchar(12) DEFAULT NULL,
+  `jurusan` varchar(100) DEFAULT NULL,
+  `semester` int(11) DEFAULT NULL,
+  `nomor_rekening` varchar(50) DEFAULT NULL,
+  `prestasi` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`nim`, `pin`, `nama`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kode_pos`, `telepon`, `jurusan`, `semester`, `nomor_rekening`, `prestasi`) VALUES
+('09021181419007', '$2y$10$z8wNCJD4lq0nxS6mfz28KOeaY0nF335A3Mz.j99H5Pf2.97Ik3RmC', 'Azhary Arliansyah', 'L', 'Islam', 'Palembang', '1996-08-05', 'Komplek Bougenville', '31521', '081234265011', '2', 8, '123213324', 'Bikin mim');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -108,6 +124,13 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `role` enum('admin','mahasiswa') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `email`, `role`) VALUES
+('azhary', '985fabf8f96dc1c4c306341031569937', 'arliansyah_azhary@yahoo.com', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -159,7 +182,7 @@ ALTER TABLE `data_pengajuan`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

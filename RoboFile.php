@@ -14,31 +14,14 @@ class RoboFile extends \Robo\Tasks
             $this->say("Pushing code to repository...");
             $this->taskGitStack()
                 ->add('.')
+                ->commit($commitMessage)
+                ->push($origin, $branch)
                 ->run();
-            if ($this->commit($commitMessage)->wasSuccessful())
-            {
-                $this->taskGitStack()
-                    ->push($origin, $branch)
-                    ->run();
-            }
-            else
-            {
-                $this->taskGitStack()
-                    ->push($origin, $branch)
-                    ->run();
-            }
         }
         else
         {
             $this->say("Testing failed.");
         }
-    }
-
-    public function commit($commitMessage)
-    {
-        return $this->taskGitStack()
-            ->commit($commitMessage)
-            ->run();
     }
 
     public function standardize()
