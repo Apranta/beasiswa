@@ -3,10 +3,16 @@
 class MY_Controller extends CI_Controller
 {
     public $title = 'Sistem Informasi Beasiswa Politeknik Negeri Sriwijaya';
+
     public function __construct()
     {
         parent::__construct();
         date_default_timezone_set("Asia/Jakarta");
+        
+        $this->data['img_url']              = base_url('assets/img');
+        $this->data['kemahasiswaan_img']    = $this->data['img_url'] . '/kemahasiswaan.jpeg';
+        $this->data['pih_img']              = $this->data['img_url'] . '/pih.png';
+        $this->data['polsri_img']           = $this->data['img_url'] . '/polsri.jpg';
     }
 
     public function template($data, $module = '', $excludedParts = [])

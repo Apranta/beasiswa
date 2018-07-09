@@ -1,5 +1,15 @@
 <div class="row">
   <div class="col-md-2">
+    <img src="<?php echo $polsri_img ?>" width="100" class="pull-right">
+  </div>
+  <div class="col-md-8 text-center" style="margin: auto 0;">
+    <h2>Sistem Informasi Beasiswa</h2>
+    <h3>Politeknik Negeri Sriwijaya</h3>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-2">
     <div class="card text-white bg-primary o-hidden h-100">
       <div class="card-body">
         <div class="text-center">
@@ -18,7 +28,7 @@
             <i class="fa fa-fw fa-users" style="font-size: 50px;"></i>
         </div>
       </div>
-      <a class="card-footer text-white clearfix z-1 text-center" href="#">
+      <a class="card-footer text-white clearfix z-1 text-center" href="<?php echo base_url('mahasiswa/data-keluarga') ?>">
         <h6>Data Keluarga</h6>
       </a>
     </div>

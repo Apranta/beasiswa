@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title><?php echo $title . ' | ' . $this->title; ?></title>
+    <link rel="icon" href="<?php echo $polsri_img ?>" type="image/x-icon" />
 
     <!-- Bootstrap core CSS-->
     <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -27,13 +28,13 @@
   <div class="container">
     <div class="row">
       <div style="text-align: center; padding: 15px;" class="col-md-4">
-        <img style="width: 75px; height: 75px;" src="<?php echo base_url('assets/logo.png') ?>" class="img img-thumbnail">
+        <img style="width: 95px; height: 95px; border: none;" src="<?php echo $polsri_img ?>" class="img img-thumbnail">
       </div>
       <div style="text-align: center; padding: 15px;" class="col-md-4">
-        <img style="width: 75px; height: 75px;" src="<?php echo base_url('assets/logo.png') ?>" class="img img-thumbnail">
+        <img style="width: 190px; height: 95px; border: none;" src="<?php echo $pih_img ?>" class="img img-thumbnail">
       </div>
       <div style="text-align: center; padding: 15px;" class="col-md-4">
-        <img style="width: 75px; height: 75px;" src="<?php echo base_url('assets/logo.png') ?>" class="img img-thumbnail">
+        <img style="width: 270px; height: 95px; border: none;" src="<?php echo $kemahasiswaan_img ?>" class="img img-thumbnail">
       </div>
     </div>
     <div class="row" style="margin-top: 20px;">
