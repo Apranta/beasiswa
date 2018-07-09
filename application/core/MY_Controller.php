@@ -6,6 +6,9 @@ class MY_Controller extends CI_Controller
 
     public function __construct()
     {
+        // compress html output to optimize page load heheheheheheh
+        ob_start([$this, 'sanitizeOutput']);
+
         parent::__construct();
         date_default_timezone_set("Asia/Jakarta");
         
@@ -156,5 +159,25 @@ class MY_Controller extends CI_Controller
         }
 
         return $result;
+    }
+
+    // this method is used to compress html output
+    protected function sanitizeOutput($buffer)
+    {
+
+        $search = [
+            '/\>[^\S ]+/s',     // strip whitespaces after tags, except space
+            '/[^\S ]+\</s',     // strip whitespaces before tags, except space
+            '/(\s)+/s',         // shorten multiple whitespace sequences
+            '/<!--(.|\s)*?-->/' // Remove HTML comments
+        ];
+        $replace = [
+            '>',
+            '<',
+            '\\1',
+            ''
+        ];
+        $buffer = preg_replace($search, $replace, $buffer);
+        return $buffer;
     }
 }
