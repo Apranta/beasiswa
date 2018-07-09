@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2018 at 07:55 AM
+-- Generation Time: Jul 09, 2018 at 03:50 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `data_keluarga` (
-  `nim` int(11) NOT NULL,
+  `nim` varchar(20) NOT NULL,
   `n_ayah` varchar(100) NOT NULL,
   `n_ibu` varchar(100) NOT NULL,
   `agama_ayah` varchar(100) NOT NULL,
@@ -46,8 +46,17 @@ CREATE TABLE `data_keluarga` (
   `kepemilikan_rumah` varchar(100) NOT NULL,
   `daya_listrik` int(11) NOT NULL,
   `sumber_air` text NOT NULL,
-  `saudara` text NOT NULL
+  `saudara` text,
+  `alamat_ayah` text NOT NULL,
+  `alamat_ibu` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_keluarga`
+--
+
+INSERT INTO `data_keluarga` (`nim`, `n_ayah`, `n_ibu`, `agama_ayah`, `agama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `usia_ayah`, `usia_ibu`, `jumlah_anak`, `anak_ke`, `penghasilan`, `status_ayah`, `status_ibu`, `kepemilikan_rumah`, `daya_listrik`, `sumber_air`, `saudara`, `alamat_ayah`, `alamat_ibu`) VALUES
+('09021181419007', 'Syamsudin', 'Dahlia Yustina', 'Islam', 'Islam', 'PNS', 'IRT', 54, 50, 3, 3, 3000000, 'Kandung', 'Kandung', 'Pribadi', 10, 'Sudekat', '[{\"nama\":\"Diaz Liansyah Pratama\",\"usia\":\"27\",\"status\":\"Kandung\",\"pekerjaan\":\"Pegawai\"},{\"nama\":\"Azmi Auliansyah\",\"usia\":\"23\",\"status\":\"Kandung\",\"pekerjaan\":\"Pegawai\"}]', 'Lubuklinggau', 'Lubuklinggau');
 
 -- --------------------------------------------------------
 
@@ -60,8 +69,15 @@ CREATE TABLE `data_pengajuan` (
   `nim` varchar(100) NOT NULL,
   `jenis_beasiswa` enum('PPA','PKG','SWADANA') NOT NULL,
   `ipk_terakhir` double NOT NULL,
-  `status` enum('baru','perpanjangan') NOT NULL
+  `status` enum('baru','perpanjangan') NOT NULL DEFAULT 'baru'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_pengajuan`
+--
+
+INSERT INTO `data_pengajuan` (`id`, `nim`, `jenis_beasiswa`, `ipk_terakhir`, `status`) VALUES
+(1, '09021181419007', 'PPA', 3.72, 'baru');
 
 -- --------------------------------------------------------
 
@@ -110,7 +126,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `pin`, `nama`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kode_pos`, `telepon`, `jurusan`, `semester`, `nomor_rekening`, `prestasi`) VALUES
-('09021181419007', '$2y$10$z8wNCJD4lq0nxS6mfz28KOeaY0nF335A3Mz.j99H5Pf2.97Ik3RmC', 'Azhary Arliansyah', 'L', 'Islam', 'Palembang', '1996-08-05', 'Komplek Bougenville', '31521', '081234265011', '2', 8, '123213324', 'Bikin mim');
+('09021181419007', '$2y$10$w0mGp0Zti29xbigPpSW1p.u9CNrlnKKwP.3gmCnBZO8lfxt01iv2i', 'Azhary Arliansyah', 'L', 'Islam', 'Palembang', '1996-08-05', 'Komplek Bougenville', '31521', '081234265011', '2', 8, '123213324', 'Bikin mim');
 
 -- --------------------------------------------------------
 
@@ -176,7 +192,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `data_pengajuan`
 --
 ALTER TABLE `data_pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jurusan`

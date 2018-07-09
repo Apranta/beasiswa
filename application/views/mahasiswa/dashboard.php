@@ -40,7 +40,7 @@
             <i class="fa fa-fw fa-clipboard" style="font-size: 50px;"></i>
         </div>
       </div>
-      <a class="card-footer text-white clearfix z-1 text-center" href="#">
+      <a class="card-footer text-white clearfix z-1 text-center" href="<?php echo base_url('mahasiswa/pengajuan-beasiswa') ?>">
         <h6>Pengajuan Beasiswa</h6>
       </a>
     </div>
@@ -52,7 +52,7 @@
             <i class="fa fa-fw fa-print" style="font-size: 50px;"></i>
         </div>
       </div>
-      <a class="card-footer text-white clearfix z-1 text-center" href="#">
+      <a class="card-footer text-white clearfix z-1 text-center" href="<?php echo base_url('mahasiswa/cetak-berkas') ?>">
         <h6>Cetak Berkas</h6>
       </a>
     </div>
@@ -64,7 +64,7 @@
             <i class="fa fa-fw fa-key" style="font-size: 50px;"></i>
         </div>
       </div>
-      <a class="card-footer text-white clearfix z-1 text-center" href="#">
+      <a class="card-footer text-white clearfix z-1 text-center" href="<?php echo base_url('mahasiswa/ganti-pin') ?>">
         <h6>Ganti PIN</h6>
       </a>
     </div>
@@ -76,7 +76,7 @@
             <i class="fa fa-fw fa-sign-out" style="font-size: 50px;"></i>
         </div>
       </div>
-      <a class="card-footer text-white clearfix z-1 text-center" href="#">
+      <a class="card-footer text-white clearfix z-1 text-center" href="<?php echo base_url('logout') ?>">
         <h6>Logout</h6>
       </a>
     </div>
