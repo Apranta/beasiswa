@@ -2,14 +2,14 @@
             <li class="breadcrumb-item">
               <a href="<?= base_url('admin') ?>">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Data Mahasiswa</li>
+            <li class="breadcrumb-item active">Data User</li>
         </ol>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="<?= base_url('admin/tambah-mahasiswa') ?>" class="btn btn-success" style="margin-bottom: 3%;"> <i class="fa fa-plus"></i> Tambah</a>
+                    <a href="<?= base_url('admin/tambah-user') ?>" class="btn btn-success" style="margin-bottom: 3%;"> <i class="fa fa-plus"></i> Tambah</a>
                     <div class="card mb-3">
                         <div class="card-header">
-                            <h5>Data Mahasiswa</h5>
+                            <h5>Data User</h5>
                         </div>
                         <div class="card-body">
                             <style type="text/css">
@@ -24,25 +24,24 @@
                             <table class="table table-bordered"  width="100%">
                                 <thead>
                                     <tr>
-                                        <!-- <th>No</th> -->
                                         <th></th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Semester</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i=0; foreach ($data as $mhs): ?>
+                                    <?php $i=0; foreach ($data as $row): ?>
                                     <tr>
                                         <td><?php echo ++$i ?></td>
-                                        <td><?php echo $mhs->nama ?></td>
-                                        <td><?= $mhs->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
-                                        <td><?php echo $mhs->semester ?></td>
+                                        <td><?php echo $row->username ?></td>
+                                        <td><?= $row->email ?></td>
+                                        <td><?php echo $row->role ?></td>
                                         <td>
-                                            <a href="<?php echo base_url('admin/detail_mahasiswa/'.$mhs->nim) ?>" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
-                                            <a href="<?php echo base_url('admin/edit-mahasiswa/'.$mhs->nim) ?>" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="<?php echo base_url('admin/data-mahasiswa/'.$mhs->nim) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                            <a href="<?php echo base_url('admin/detail_user/'.$row->username) ?>" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
+                                            <a href="<?php echo base_url('admin/edit-user/'.$row->username) ?>" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a href="<?php echo base_url('admin/data-user/'.$row->username) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>   
                                     <?php endforeach ?>

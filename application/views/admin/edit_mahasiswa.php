@@ -5,7 +5,7 @@
         <li class="breadcrumb-item">
           <a href="<?= base_url('admin/data-mahasiswa') ?>">Data Mahasiswa</a>
         </li>
-        <li class="breadcrumb-item active">Tambah Mahasiswa</li>
+        <li class="breadcrumb-item active">Edit Mahasiswa</li>
     </ol>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
@@ -15,12 +15,12 @@
         <div class="col-lg-12">
             <div class="card mb-3">
                 <div class="card-header">
-                    <h5>Tambah Data Mahasiswa</h5>
+                    <h5>Edit Data Mahasiswa</h5>
                 </div>
                 <div class="card-body">
                     <?php echo $this->session->flashdata('msg') ?>
 
-                    <?php echo form_open('admin/tambah-mahasiswa') ?>
+                    <?php echo form_open('admin/edit-mahasiswa/'. $data->nim) ?>
 
                     <div class="form-group">
                         <div class="row">
@@ -30,7 +30,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="nama" class="form-control">
+                                <input required type="text" name="nama" value="<?= $data->nama ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -43,7 +43,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="nim" class="form-control">
+                                <input disabled type="text" name="nim" value="<?= $data->nim  ?>" class="form-control" readonly>
                             </div>
                         </div>    
                     </div>
@@ -52,11 +52,11 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <label for="nim">
-                                    <b>PIN<span style="color: red;">*</span></b>
+                                    <b>PIN<span style="color: red;">* <small>kosongkan jika tidak diubah</small></span></b>
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="pin" minlength="8" maxlength="8" class="form-control">
+                                <input type="text" name="pin" minlength="8" maxlength="8" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -69,8 +69,8 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="radio" name="jenis_kelamin" value="L"> Laki-laki
-                                <input required type="radio" name="jenis_kelamin" value="P"> Perempuan
+                                <input required type="radio" name="jenis_kelamin" value="L" <?php echo $data->jenis_kelamin == 'L' ? 'checked' : '' ?>> Laki-laki 
+                                <input required type="radio" name="jenis_kelamin" value="P" <?php echo $data->jenis_kelamin == 'P' ? 'checked' : '' ?>> Perempuan 
                             </div>
                         </div>    
                     </div>
@@ -83,7 +83,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="agama" class="form-control">
+                                <input required type="text" name="agama" value="<?= $data->alamat ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -96,7 +96,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="tempat_lahir" class="form-control">
+                                <input required type="text" name="tempat_lahir" value="<?= $data->tempat_lahir ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -109,7 +109,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required readonly type="text" name="tanggal_lahir" class="form-control">
+                                <input required readonly type="text" name="tanggal_lahir" value="<?= $data->tanggal_lahir ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -122,7 +122,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="alamat" class="form-control">
+                                <input required type="text" name="alamat" value="<?= $data->alamat ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -135,7 +135,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="kode_pos" class="form-control">
+                                <input required type="text" name="kode_pos" value="<?= $data->kode_pos ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -148,7 +148,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="telepon" class="form-control">
+                                <input required type="text" name="telepon" value="<?= $data->telepon ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -161,7 +161,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" min="1" name="semester" class="form-control">
+                                <input required type="number" min="1" name="semester" value="<?= $data->semester ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -174,7 +174,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="nomor_rekening" class="form-control">
+                                <input required type="text" name="nomor_rekening" value="<?= $data->nomor_rekening ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -193,7 +193,7 @@
                                 {
                                     $options[$row->id] = $row->nama;
                                 }
-                                    echo form_dropdown('jurusan', $options, $mahasiswa->jurusan ?? null, [ 'required' => 'required', 'class' => 'form-control' ]);
+                                    echo form_dropdown('jurusan', $options, $data->jurusan ?? null, [ 'required' => 'required', 'class' => 'form-control' ]);
                                 ?>
                             </div>
                         </div>    
@@ -207,7 +207,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="prestasi" class="form-control">
+                                <input required type="text" name="prestasi" value="<?= $data->prestasi ?>" class="form-control">
                             </div>
                         </div>    
                     </div>

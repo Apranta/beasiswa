@@ -7,7 +7,7 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         // compress html output to optimize page load heheheheheheh
-        ob_start([$this, 'sanitizeOutput']);
+        //ob_start([$this, 'sanitizeOutput']);
 
         parent::__construct();
         date_default_timezone_set("Asia/Jakarta");

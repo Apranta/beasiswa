@@ -13,15 +13,33 @@
             </a>
           </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="<?php echo base_url('admin/data-user') ?>">
+              <i class="fa fa-fw fa-users"></i>
+              <span class="nav-link-text">User</span>
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
             <a class="nav-link" href="<?php echo base_url('admin/data-mahasiswa') ?>">
               <i class="fa fa-fw fa-user"></i>
               <span class="nav-link-text">Mahasiswa</span>
             </a>
           </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="<?php echo base_url('admin') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin/data-keluarga') ?>">
+              <i class="fa fa-fw fa-users"></i>
+              <span class="nav-link-text">Data Keluarga</span>
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="<?php echo base_url('admin/data-pengajuan') ?>">
               <i class="fa fa-fw fa-user"></i>
               <span class="nav-link-text">Data Pengajuan Beasiswa</span>
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="<?php echo base_url('admin/data-jurusan') ?>">
+              <i class="fa fa-fw fa-book"></i>
+              <span class="nav-link-text">Data Jurusan</span>
             </a>
           </li>
       </ul>
