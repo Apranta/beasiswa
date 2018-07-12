@@ -6,6 +6,7 @@
         </ol>
             <div class="row">
                 <div class="col-lg-12">
+                    <a href="<?= base_url('admin/tambah-mahasiswa') ?>" class="btn btn-success" style="margin-bottom: 3%;"> <i class="fa fa-plus"></i> Tambah</a>
                     <div class="card mb-3">
                         <div class="card-header">
                             <h5 class="text-center">Data Mahasiswa</h5>
@@ -36,7 +37,7 @@
                                         <td><?php echo $mhs->jenis_kelamin ?></td>
                                         <td><?php echo $mhs->semester ?></td>
                                         <td>
-                                            <a href="<?php echo base_url('admin/detail_mahasiswa/'.$row->nim) ?>" class="btn btn-primary">Detail</a>
+                                            <a href="<?php echo base_url('admin/detail_mahasiswa/'.$mhs->nim) ?>" class="btn btn-primary">Detail</a>
                                         </td>
                                     </tr>   
                                     <?php endforeach ?>
