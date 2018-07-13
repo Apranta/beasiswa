@@ -5,18 +5,18 @@ class Admin extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        // $this->data['username']      = $this->session->userdata('username');
-        // $this->data['role']  = $this->session->userdata('role');
-        // if (!isset($this->data['username'], $this->data['role'])) {
-        //     $this->session->sess_destroy();
-        //     redirect('logout');
-        //     exit;
-        // }
-        // if ($this->data['role'] != 'admin') {
-        //     $this->session->sess_destroy();
-        //     redirect('logout');
-        //     exit;
-        // }
+        $this->data['username']     = $this->session->userdata('username');
+        $this->data['role']         = $this->session->userdata('role');
+        if (!isset($this->data['username'], $this->data['role'])) {
+            $this->session->sess_destroy();
+            redirect('logout');
+            exit;
+        }
+        if ($this->data['role'] != 'admin') {
+            $this->session->sess_destroy();
+            redirect('logout');
+            exit;
+        }
         $this->load->model('user_m');
         $this->load->model('jurusan_m');
         $this->load->model('mahasiswa_m');

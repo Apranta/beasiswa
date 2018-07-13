@@ -18,10 +18,11 @@
                 </div>
                 <div class="card-body">
                     <style type="text/css">
-                        tr th, tr td {text-align: center;}
+                        tr th, tr td {text-align: left;}
                         table{
                             width: 100% !important;
                         }
+                        .pd{padding-left: 5% !important;}
                     </style>
                     <div>
                         <?= $this->session->flashdata('msg') ?>
@@ -33,36 +34,50 @@
                                 <td><?= $data->nim ?></td>
                             </tr>
                             <tr>
-                                <th>Nama Ayah</th>
+                                <th colspan="2">Data Ayah</th>
+                            </tr>
+                            <tr>
+                                <th class="pd">Nama</th>
                                 <td><?= $data->n_ayah ?></td>
                             </tr>
                             <tr>
-                                <th>Nama Ibu</th>
-                                <td><?= $data->n_ibu ?></td>
-                            </tr>
-                            <tr>
-                                <th>Agama Ayah</th>
-                                <td><?= $data->agama_ayah ?></td>
-                            </tr>
-                            <tr>
-                                <th>Agama Ibu</th>
-                                <td><?= $data->agama_ibu ?></td>
-                            </tr>
-                            <tr>
-                                <th>Pekerjaan Ayah</th>
-                                <td><?= $data->pekerjaan_ayah ?></td>
-                            </tr>
-                            <tr>
-                                <th>Pekerjaan Ibu</th>
-                                <td><?= $data->pekerjaan_ibu ?></td>
-                            </tr>
-                            <tr>
-                                <th>Usia Ayah</th>
+                                <th class="pd">Usia</th>
                                 <td><?= $data->usia_ayah ?></td>
                             </tr>
                             <tr>
-                                <th>Usia Ibu</th>
+                                <th class="pd">Agama</th>
+                                <td><?= $data->agama_ayah ?></td>
+                            </tr>
+                            <tr>
+                                <th class="pd">Pekerjaan</th>
+                                <td><?= $data->pekerjaan_ayah ?></td>
+                            </tr>
+                            <tr>
+                                <th class="pd">Status</th>
+                                <td><?= $data->status_ayah ?></td>
+                            </tr>
+                            <tr>
+                                <th class="pd">Alamat</th>
+                                <td><?= $data->alamat_ayah ?></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Data Ibu</th>
+                            </tr>
+                            <tr>
+                                <th class="pd">Nama</th>
+                                <td><?= $data->n_ibu ?></td>
+                            </tr>
+                            <tr>
+                                <th class="pd">Usia</th>
                                 <td><?= $data->usia_ibu ?></td>
+                            </tr>
+                            <tr>
+                                <th class="pd">Agama</th>
+                                <td><?= $data->agama_ibu ?></td>
+                            </tr>
+                            <tr>
+                                <th class="pd">Pekerjaan</th>
+                                <td><?= $data->pekerjaan_ibu ?></td>
                             </tr>
                             <tr>
                                 <th>Jumlah Anak</th>
@@ -77,12 +92,12 @@
                                 <td><?= $data->penghasilan ?></td>
                             </tr>
                             <tr>
-                                <th>Status Ayah</th>
-                                <td><?= $data->status_ayah ?></td>
+                                <th>Status</th>
+                                <td><?= $data->status_ibu ?></td>
                             </tr>
                             <tr>
-                                <th>Status Ibu</th>
-                                <td><?= $data->status_ibu ?></td>
+                                <th>Alamat</th>
+                                <td><?= $data->alamat_ibu ?></td>
                             </tr>
                             <tr>
                                 <th>Kepemilikan Rumah</th>
@@ -105,14 +120,6 @@
                                         <?php endforeach; ?>
                                     </ul>
                                 </td>
-                            </tr>
-                            <tr>
-                                <th>Alamat Ayah</th>
-                                <td><?= $data->alamat_ayah ?></td>
-                            </tr>
-                            <tr>
-                                <th>Alamat Ibu</th>
-                                <td><?= $data->alamat_ibu ?></td>
                             </tr>
                         </tbody>
                     </table>
