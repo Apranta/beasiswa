@@ -35,4 +35,27 @@ class Login extends MY_Controller
         $this->load->view('login', $this->data);
     }
 
+    public function admin(){
+        if ($this->POST('login')) {
+            $this->load->model('user_m');
+            $data_admin = [
+                'username' => $this->POST('username'),
+                'password' => md5($this->POST('password'))
+            ];
+            $admin = $this->user_m->login($data_admin);
+
+            if (count($admin) > 0) {
+                redirect('admin');
+            }
+            else
+            {
+                $this->flashMessage('Username atau password yang anda masukkan salah', 'danger');
+                redirect('login/admin');
+                exit;
+            }
+        }
+
+        $this->load->view('admin/login');
+    }
+
 }
