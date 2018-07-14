@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-mahasiswa') ?>">Data Mahasiswa</a>
+          <a href="<?php echo base_url('admin/data-mahasiswa') ?>">Data Mahasiswa</a>
         </li>
         <li class="breadcrumb-item active">Tambah Mahasiswa</li>
     </ol>
@@ -207,7 +207,14 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="prestasi" class="form-control">
+                                <?php  
+                                    $options = [ 
+                                        ''                  => 'Pilih Lingkup Prestasi',
+                                        'Internasional'     => 'Internasional',
+                                        'Nasional'          => 'Nasional'
+                                    ];
+                                    echo form_dropdown('prestasi', $options, '', [ 'required' => 'required', 'class' => 'form-control' ]);
+                                    ?>
                             </div>
                         </div>    
                     </div>

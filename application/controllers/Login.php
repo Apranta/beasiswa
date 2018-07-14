@@ -35,7 +35,8 @@ class Login extends MY_Controller
         $this->load->view('login', $this->data);
     }
 
-    public function admin(){
+    public function admin()
+    {
         if ($this->POST('login')) {
             $this->load->model('user_m');
             $data_admin = [

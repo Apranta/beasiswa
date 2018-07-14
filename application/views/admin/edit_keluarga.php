@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-keluarga') ?>">Data Keluarga</a>
+          <a href="<?php echo base_url('admin/data-keluarga') ?>">Data Keluarga</a>
         </li>
         <li class="breadcrumb-item active">Edit Keluarga</li>
     </ol>
@@ -30,7 +30,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="n_ayah" value="<?= $data->n_ayah ?>" class="form-control">
+                                <input required type="text" name="n_ayah" value="<?php echo $data->n_ayah ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -43,7 +43,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="n_ibu" value="<?= $data->n_ibu ?>" class="form-control">
+                                <input required type="text" name="n_ibu" value="<?php echo $data->n_ibu ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -56,7 +56,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="agama_ayah" value="<?= $data->agama_ayah ?>" class="form-control">
+                                <input required type="text" name="agama_ayah" value="<?php echo $data->agama_ayah ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -69,7 +69,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="agama_ibu" value="<?= $data->agama_ibu ?>" class="form-control">
+                                <input required type="text" name="agama_ibu" value="<?php echo $data->agama_ibu ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -82,7 +82,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="pekerjaan_ayah" value="<?= $data->pekerjaan_ayah ?>" class="form-control">
+                                <input required type="text" name="pekerjaan_ayah" value="<?php echo $data->pekerjaan_ayah ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -95,7 +95,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="pekerjaan_ibu" value="<?= $data->pekerjaan_ibu ?>" class="form-control">
+                                <input required type="text" name="pekerjaan_ibu" value="<?php echo $data->pekerjaan_ibu ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -108,7 +108,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" name="usia_ayah" value="<?= $data->usia_ayah ?>" class="form-control">
+                                <input required type="number" name="usia_ayah" value="<?php echo $data->usia_ayah ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -121,7 +121,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" name="usia_ibu" value="<?= $data->usia_ibu ?>" class="form-control">
+                                <input required type="number" name="usia_ibu" value="<?php echo $data->usia_ibu ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -134,7 +134,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" name="jumlah_anak" value="<?= $data->jumlah_anak ?>" class="form-control">
+                                <input required type="number" name="jumlah_anak" value="<?php echo $data->jumlah_anak ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -147,7 +147,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" name="anak_ke" value="<?= $data->anak_ke ?>" class="form-control">
+                                <input required type="number" name="anak_ke" value="<?php echo $data->anak_ke ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -160,7 +160,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" name="penghasilan" value="<?= $data->penghasilan ?>" class="form-control">
+                                <input required type="number" name="penghasilan" value="<?php echo $data->penghasilan ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -173,7 +173,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="status_ayah" value="<?= $data->status_ayah ?>" class="form-control">
+                                <input required type="text" name="status_ayah" value="<?php echo $data->status_ayah ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -186,7 +186,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="status_ibu" value="<?= $data->status_ibu ?>" class="form-control">
+                                <input required type="text" name="status_ibu" value="<?php echo $data->status_ibu ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -199,7 +199,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="kepemilikan_rumah" value="<?= $data->kepemilikan_rumah ?>" class="form-control">
+                                <input required type="text" name="kepemilikan_rumah" value="<?php echo $data->kepemilikan_rumah ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -212,7 +212,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" name="daya_listrik" value="<?= $data->daya_listrik ?>" class="form-control">
+                                <input required type="number" name="daya_listrik" value="<?php echo $data->daya_listrik ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -225,7 +225,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="sumber_air" value="<?= $data->sumber_air ?>" class="form-control">
+                                <input required type="text" name="sumber_air" value="<?php echo $data->sumber_air ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -238,7 +238,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="saudara" value="<?= $data->saudara ?>" class="form-control">
+                                <input required type="text" name="saudara" value="<?php echo $data->saudara ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -251,7 +251,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <textarea required name="alamat_ayah" class="form-control"><?= $data->alamat_ayah ?></textarea>                            
+                                <textarea required name="alamat_ayah" class="form-control"><?php echo $data->alamat_ayah ?></textarea>                            
                             </div>
                         </div>    
                     </div>
@@ -264,7 +264,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <textarea required name="alamat_ibu" class="form-control"><?= $data->alamat_ibu ?> </textarea>
+                                <textarea required name="alamat_ibu" class="form-control"><?php echo $data->alamat_ibu ?> </textarea>
                             </div>
                         </div>    
                     </div>

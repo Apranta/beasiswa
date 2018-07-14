@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-pengajuan') ?>">Data Pengajuan</a> </li>
+          <a href="<?php echo base_url('admin/data-pengajuan') ?>">Data Pengajuan</a> </li>
         <li class="breadcrumb-item active">Tambah Pengajuan</li>
     </ol>
 
@@ -27,10 +27,10 @@
                             </div>
                             <div class="col-md-10">
                                 <?php  
-                                    foreach ($mhs as $row)
-                                    {
-                                        $options[$row->nim] = $row->nim;
-                                    }
+                                foreach ($mhs as $row)
+                                {
+                                    $options[$row->nim] = $row->nim;
+                                }
                                     echo form_dropdown('nim', $options, $data->nim ?? null, [ 'required' => 'required', 'class' => 'form-control' ]);
                                 ?>
                             </div>
@@ -46,10 +46,10 @@
                             </div>
                             <div class="col-md-10">
                                 <?php  
-                                    foreach ($beasiswa as $rowbea)
-                                    {
-                                        $bea[$rowbea] = $rowbea;
-                                    }
+                                foreach ($beasiswa as $rowbea)
+                                {
+                                    $bea[$rowbea] = $rowbea;
+                                }
                                     echo form_dropdown('jenis_beasiswa', $bea, $data->jenis_beasiswa ?? null, [ 'required' => 'required', 'class' => 'form-control' ]);
                                 ?>
                             </div>
@@ -64,7 +64,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" value="<?= $data->ipk_terakhir ?>" step="any" name="ipk_terakhir" class="form-control">
+                                <input required type="number" value="<?php echo $data->ipk_terakhir ?>" step="any" name="ipk_terakhir" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -78,10 +78,10 @@
                             </div>
                             <div class="col-md-10">
                                 <?php  
-                                    foreach ($status as $rowstat)
-                                    {
-                                        $stat[$rowstat] = $rowstat;
-                                    }
+                                foreach ($status as $rowstat)
+                                {
+                                    $stat[$rowstat] = $rowstat;
+                                }
                                     echo form_dropdown('status', $stat, $data->status ?? null, [ 'required' => 'required', 'class' => 'form-control' ]);
                                 ?>
                             </div>

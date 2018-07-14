@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-keluarga') ?>">Data Keluarga</a>
+          <a href="<?php echo base_url('admin/data-keluarga') ?>">Data Keluarga</a>
         </li>
         <li class="breadcrumb-item active">Tambah Keluarga</li>
     </ol>
@@ -33,7 +33,7 @@
                                 <select name="nim" class="form-control" required>
                                     <option>Pilih NIM Mahasiswa</option>
                                     <?php foreach($data as $row): ?>
-                                        <option value="<?= $row->nim ?>"><?= $row->nim ?></option>
+                                        <option value="<?php echo $row->nim ?>"><?php echo $row->nim ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

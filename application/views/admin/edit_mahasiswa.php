@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-mahasiswa') ?>">Data Mahasiswa</a>
+          <a href="<?php echo base_url('admin/data-mahasiswa') ?>">Data Mahasiswa</a>
         </li>
         <li class="breadcrumb-item active">Edit Mahasiswa</li>
     </ol>
@@ -30,7 +30,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="nama" value="<?= $data->nama ?>" class="form-control">
+                                <input required type="text" name="nama" value="<?php echo $data->nama ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -43,7 +43,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input disabled type="text" name="nim" value="<?= $data->nim  ?>" class="form-control" readonly>
+                                <input disabled type="text" name="nim" value="<?php echo $data->nim  ?>" class="form-control" readonly>
                             </div>
                         </div>    
                     </div>
@@ -83,7 +83,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="agama" value="<?= $data->alamat ?>" class="form-control">
+                                <input required type="text" name="agama" value="<?php echo $data->alamat ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -96,7 +96,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="tempat_lahir" value="<?= $data->tempat_lahir ?>" class="form-control">
+                                <input required type="text" name="tempat_lahir" value="<?php echo $data->tempat_lahir ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -109,7 +109,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required readonly type="text" name="tanggal_lahir" value="<?= $data->tanggal_lahir ?>" class="form-control">
+                                <input required readonly type="text" name="tanggal_lahir" value="<?php echo $data->tanggal_lahir ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -122,7 +122,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="alamat" value="<?= $data->alamat ?>" class="form-control">
+                                <input required type="text" name="alamat" value="<?php echo $data->alamat ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -135,7 +135,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="kode_pos" value="<?= $data->kode_pos ?>" class="form-control">
+                                <input required type="text" name="kode_pos" value="<?php echo $data->kode_pos ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -148,7 +148,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="telepon" value="<?= $data->telepon ?>" class="form-control">
+                                <input required type="text" name="telepon" value="<?php echo $data->telepon ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -161,7 +161,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="number" min="1" name="semester" value="<?= $data->semester ?>" class="form-control">
+                                <input required type="number" min="1" name="semester" value="<?php echo $data->semester ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -174,7 +174,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="nomor_rekening" value="<?= $data->nomor_rekening ?>" class="form-control">
+                                <input required type="text" name="nomor_rekening" value="<?php echo $data->nomor_rekening ?>" class="form-control">
                             </div>
                         </div>    
                     </div>
@@ -207,7 +207,14 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input required type="text" name="prestasi" value="<?= $data->prestasi ?>" class="form-control">
+                                <?php  
+                                    $options = [ 
+                                        ''                  => 'Pilih Lingkup Prestasi',
+                                        'Internasional'     => 'Internasional',
+                                        'Nasional'          => 'Nasional'
+                                    ];
+                                    echo form_dropdown('prestasi', $options, $data->prestasi, [ 'required' => 'required', 'class' => 'form-control' ]);
+                                    ?>
                             </div>
                         </div>    
                     </div>

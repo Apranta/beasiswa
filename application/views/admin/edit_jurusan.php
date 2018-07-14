@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-jurusan') ?>">Data Jurusan</a> </li>
+          <a href="<?php echo base_url('admin/data-jurusan') ?>">Data Jurusan</a> </li>
         <li class="breadcrumb-item active">Edit Jurusan</li>
     </ol>
 
@@ -26,7 +26,7 @@
                                 </label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="nama" value="<?= $data->nama ?>" class="form-control" required>
+                                <input type="text" name="nama" value="<?php echo $data->nama ?>" class="form-control" required>
                             </div>
                         </div>    
                     </div>

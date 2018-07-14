@@ -177,7 +177,14 @@
             </label>
         </div>
         <div class="col-md-10">
-            <input required type="text" name="prestasi" value="<?php echo $mahasiswa->prestasi ?? null ?>" class="form-control">
+            <?php  
+                $options = [ 
+                    ''                  => 'Pilih Lingkup Prestasi',
+                    'Internasional'     => 'Internasional',
+                    'Nasional'          => 'Nasional'
+                ];
+                echo form_dropdown('prestasi', $options, $mahasiswa->prestasi ?? null, [ 'required' => 'required', 'class' => 'form-control' ]);
+                ?>
         </div>
     </div>    
 </div>
