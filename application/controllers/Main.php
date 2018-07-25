@@ -79,4 +79,9 @@ class Main extends MY_Controller
             $this->ci_phpmailer->displayError();
         }
     }
+
+    public function laporan()
+    {
+        $this->load->view('mahasiswa/tanda_terima');
+    }
 }

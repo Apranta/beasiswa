@@ -197,4 +197,13 @@ class Mahasiswa extends MY_Controller
             $this->ci_phpmailer->displayError();
         }
     }
+
+    public function tanda_terima()
+    {
+        $this->load->model('Jurusan_m');
+        $this->load->library('tanggal');
+        $this->data['data'] = $this->mahasiswa_m->get_row([ 'nim' => $this->data['nim'] ]);
+        
+        $this->load->view('mahasiswa/tanda_terima', $this->data);
+    }
 }

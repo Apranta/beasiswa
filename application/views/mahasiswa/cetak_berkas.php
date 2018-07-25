@@ -87,7 +87,7 @@
                         <i class="fa fa-fw fa-file" style="font-size: 50px;"></i>
                     </div>
                   </div>
-                  <a class="card-footer text-white clearfix z-1 text-center" href="#">
+                  <a class="card-footer text-white clearfix z-1 text-center" href="<?= base_url('mahasiswa/tanda_terima') ?>">
                     <h6>Tanda Terima Berkas</h6>
                   </a>
                 </div>
