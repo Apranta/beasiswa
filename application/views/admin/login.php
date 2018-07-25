@@ -129,10 +129,10 @@
 
     <div class="container">
         <div class="login-container">
-            <a href="<?= base_url() ?>"><i class="fa fa-home" style="font-size: 1000%;"></i></a>
+            <a href="<?php echo base_url() ?>"><i class="fa fa-home" style="font-size: 1000%;"></i></a>
             <div class="form-box">
-                <div><?= $this->session->userdata('msg') ?></div>
-                <?= form_open('login/admin') ?>
+                <div><?php echo $this->session->userdata('msg') ?></div>
+                <?php echo form_open('login/admin') ?>
                     <input name="username" type="text" placeholder="Username">
                     <input name="password" type="password" placeholder="Password">
                     <input type="submit" name="login" class="btn btn-info btn-block" value="Login" style="background-color: #31b0d5; border-color: #269abc; color: #fff;">

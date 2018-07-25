@@ -1,9 +1,9 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin') ?>">Dashboard</a>
+          <a href="<?php echo base_url('admin') ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="<?= base_url('admin/data-jurusan') ?>">Data Jurusan</a> </li>
+          <a href="<?php echo base_url('admin/data-jurusan') ?>">Data Jurusan</a> </li>
         <li class="breadcrumb-item active">Tambah Jurusan</li>
     </ol>
 

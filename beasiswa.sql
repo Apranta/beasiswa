@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2018 at 03:50 PM
+-- Generation Time: Jul 14, 2018 at 06:15 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -118,7 +118,7 @@ CREATE TABLE `mahasiswa` (
   `jurusan` varchar(100) DEFAULT NULL,
   `semester` int(11) DEFAULT NULL,
   `nomor_rekening` varchar(50) DEFAULT NULL,
-  `prestasi` text
+  `prestasi` enum('Internasional','Nasional') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `pin`, `nama`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kode_pos`, `telepon`, `jurusan`, `semester`, `nomor_rekening`, `prestasi`) VALUES
-('09021181419007', '$2y$10$w0mGp0Zti29xbigPpSW1p.u9CNrlnKKwP.3gmCnBZO8lfxt01iv2i', 'Azhary Arliansyah', 'L', 'Islam', 'Palembang', '1996-08-05', 'Komplek Bougenville', '31521', '081234265011', '2', 8, '123213324', 'Bikin mim');
+('09021181419007', '$2y$10$w0mGp0Zti29xbigPpSW1p.u9CNrlnKKwP.3gmCnBZO8lfxt01iv2i', 'Azhary Arliansyah', 'L', 'Islam', 'Palembang', '1996-08-05', 'Komplek Bougenville', '31521', '081234265011', '2', 8, '123213324', 'Internasional');
 
 -- --------------------------------------------------------
 
